@@ -36,7 +36,7 @@ function addGenre() {
     //as we using forEach and we are looping
     column.append(card)
 
-    //if the level equals easy we want the viewer to see the app
+    //if the level equals easy we want the viewer to see that getting the correct answer gets this number
     if(level === 'easy') {
         card.innerHTML = 100
     }
@@ -63,6 +63,9 @@ function addGenre() {
           // if we see in our console, we will see that in our dive card there is also 
           // a data question that we added there
           card.setAttribute('data-answer', data.results[0].correct_answer)
+          // we can grab the innerHtml card by the method getInnerHTML method
+          // by getting all the information the element has assign it to the data value
+          card.setAttribute('data-value', card.getInnerHTML())
       }); 
   });
 }
