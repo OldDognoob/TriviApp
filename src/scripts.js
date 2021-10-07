@@ -35,14 +35,21 @@ function addGenre() {
     // we are grabbing the card and we are going to do this three times
     //as we using forEach and we are looping
     column.append(card)
-    
+
 
     fetch(
       `https://opentdb.com/api.php?amount=1&category=11&difficulty=${level}&type=boolean`
     )
       // so fetching the API, we need to get the response
       .then((response) => response.json())
-      .then((data) => console.log(data)); // we are going to console log to see what is coming back to us
+      .then(data => {
+          console.log(data) // we are going to console log to see what is coming back to us
+          // we are going to use a method called setAttribute that allow us add data attributes
+          // or whatever attributes we want to add
+          // we are getting in our data question and we are grabbing the first result
+          // which is 0, and if I want something specific I will use the different "key"
+          card.setAttribute('data-questions', data.results[0].question)
+      }); 
   });
 }
 
