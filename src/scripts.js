@@ -5,17 +5,24 @@ const scoreDisplay = document.getElementById("score");
 
 /*we are going to use this, to make a fetch request
 for the specific difficulty to the specific level */
-const film = 11;
+//replace the const film equal 11 with an array of objects
+/*const film = 11;*/
+const genres = [
+  {
+    name: "Film",
+    id: 11,
+  },
+];
 /*this is the array of levels */
 const levels = ["easy", "medium", "hard"];
 
-function addGenre() {
+function addGenre(genre) {
   //we are going to create elements in js
   const column = document.createElement("div"); //it is a js method allow us to create element in javascript
   // we are going to use the classList method to add a class
   column.classList.add("genre-column");
   // we can see how it look by
-  column.innerHTML = "hello there genre here talking to you all";
+  column.innerHTML = genre.name;
   // we grabbing the game and we are going to use append the column we created
   // append method to put column inside game
   game.append(column);
@@ -34,41 +41,46 @@ function addGenre() {
     // we going to use append to insert this card to our column
     // we are grabbing the card and we are going to do this three times
     //as we using forEach and we are looping
-    column.append(card)
+    column.append(card);
 
     //if the level equals easy we want the viewer to see that getting the correct answer gets this number
-    if(level === 'easy') {
-        card.innerHTML = 100
+    if (level === "easy") {
+      card.innerHTML = 100;
     }
-    if(level === 'medium') {
-        card.innerHTML = 200
+    if (level === "medium") {
+      card.innerHTML = 200;
     }
-    if(level === "hard") {
-        card.innerHTML = 300
+    if (level === "hard") {
+      card.innerHTML = 300;
     }
-
 
     fetch(
-      `https://opentdb.com/api.php?amount=1&category=11&difficulty=${level}&type=boolean`
+      `https://opentdb.com/api.php?amount=1&category=11&difficulty=${genre.id}&type=boolean`
     )
       // so fetching the API, we need to get the response
       .then((response) => response.json())
-      .then(data => {
-          console.log(data) // we are going to console log to see what is coming back to us
-          // we are going to use a method called setAttribute that allow us add data attributes
-          // or whatever attributes we want to add
-          // we are getting in our data question and we are grabbing the first result
-          // which is 0, and if I want something specific I will use the different "key"
-          card.setAttribute('data-questions', data.results[0].question)
-          // if we see in our console, we will see that in our dive card there is also 
-          // a data question that we added there
-          card.setAttribute('data-answer', data.results[0].correct_answer)
-          // we can grab the innerHtml card by the method getInnerHTML method
-          // by getting all the information the element has assign it to the data value
-          card.setAttribute('data-value', card.getInnerHTML())
-      }); 
+      .then((data) => {
+        console.log(data); // we are going to console log to see what is coming back to us
+        // we are going to use a method called setAttribute that allow us add data attributes
+        // or whatever attributes we want to add
+        // we are getting in our data question and we are grabbing the first result
+        // which is 0, and if I want something specific I will use the different "key"
+        card.setAttribute("data-questions", data.results[0].question);
+        // if we see in our console, we will see that in our dive card there is also
+        // a data question that we added there
+        card.setAttribute("data-answer", data.results[0].correct_answer);
+        // we can grab the innerHtml card by the method getInnerHTML method
+        // by getting all the information the element has assign it to the data value
+        card.setAttribute("data-value", card.getInnerHTML());
+      });
+    // add an event listener to click any of the cards
+    card.addEventListener("click", flipCard);
   });
 }
 
 //pulling the function
-addGenre();
+addGenre(genres[0]);
+
+function flipCard() {
+  console.log("clicked");
+}
