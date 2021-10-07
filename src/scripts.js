@@ -78,10 +78,10 @@ function addGenre(genre) {
         // or whatever attributes we want to add
         // we are getting in our data question and we are grabbing the first result
         // which is 0, and if I want something specific I will use the different "key"
-        card.setAttribute("data-questions", data.results[0].question);
+        card.setAttribute("data-questions", data.result[0].question);
         // if we see in our console, we will see that in our dive card there is also
         // a data question that we added there
-        card.setAttribute("data-answer", data.results[0].correct_answer);
+        card.setAttribute("data-answer", data.result[0].correct_answer);
         // we can grab the innerHtml card by the method getInnerHTML method
         // by getting all the information the element has assign it to the data value
         card.setAttribute("data-value", card.getInnerHTML());
@@ -111,5 +111,7 @@ function flipCard() {
   textDisplay.innerHTML =  this.getAttribute('data-question')
   // click any of the cards
   this.append(textDisplay,trueButton,falseButton)
+
+  Array.from(document.querySelectorAll('.card'))
 
 }
