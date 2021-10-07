@@ -10,6 +10,10 @@ body {
     flex-direction: column;
 }
 
+#game {
+    display:flex;
+}
+
 .genre-column {
     display:flex;
     flex-direction: column;
@@ -24,7 +28,7 @@ body {
     border: solid yellowgreen 5px;
     text-align: center;
     padding: 5px;
-    margin: 0 auto;
+    margin: 10px;
     float:none;
     margin-bottom: 10px;
 }
