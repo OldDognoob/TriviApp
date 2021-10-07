@@ -31,6 +31,7 @@ function addGenre() {
     // we use a const as a blocked scope
     const card = document.createElement("div");
     card.classList.add("card");
+    // we going to use append to insert this card to our column
 
     fetch(
       `https://opentdb.com/api.php?amount=1&category=11&difficulty=${level}&type=boolean`
