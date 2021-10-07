@@ -49,6 +49,9 @@ function addGenre() {
           // we are getting in our data question and we are grabbing the first result
           // which is 0, and if I want something specific I will use the different "key"
           card.setAttribute('data-questions', data.results[0].question)
+          // if we see in our console, we will see that in our dive card there is also 
+          // a data question that we added there
+          card.setAttribute('data-answer', data.results[0].correct_answer)
       }); 
   });
 }
