@@ -36,6 +36,17 @@ function addGenre() {
     //as we using forEach and we are looping
     column.append(card)
 
+    //if the level equals easy we want the viewer to see the app
+    if(level === 'easy') {
+        card.innerHTML = 100
+    }
+    if(level === 'medium') {
+        card.innerHTML = 200
+    }
+    if(level === "hard") {
+        card.innerHTML = 300
+    }
+
 
     fetch(
       `https://opentdb.com/api.php?amount=1&category=11&difficulty=${level}&type=boolean`
