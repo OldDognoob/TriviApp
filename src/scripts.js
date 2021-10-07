@@ -108,6 +108,8 @@ function flipCard() {
   const falseButton = document.createElement('button')
   trueButton.innerHTML = 'True'
   falseButton.innerHTML = 'False'
+  textDisplay.innerHTML =  this.getAttribute('data-question')
   // click any of the cards
   this.append(textDisplay,trueButton,falseButton)
+
 }
