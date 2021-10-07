@@ -20,7 +20,8 @@ body {
     width:200px;
     height:120px;
     border-radius: 20px;
-    background-color: #2729b4;
+    background-color: #080a8b;
+    border: solid yellowgreen 5px;
     text-align: center;
     padding: 5px;
     margin: 0 auto;
