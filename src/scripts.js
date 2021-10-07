@@ -100,4 +100,12 @@ genres.forEach(genre => addGenre(genre))
 
 function flipCard() {
   console.log("clicked");
+  //display the answer when we clicked on a card
+  const textDisplay = document.createElement('div')
+  //we create a trueButton too
+  const trueButton = document.createElement('button')
+  // we create also a falseButton
+  const falseButton = document.createElement('button')
+  trueButton.innerHTML = 'True'
+  falseButton.innerHTML = 'False'
 }
