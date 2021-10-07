@@ -7,10 +7,23 @@ const scoreDisplay = document.getElementById("score");
 for the specific difficulty to the specific level */
 //replace the const film equal 11 with an array of objects
 /*const film = 11;*/
+// we have an array of 4 objects and we are going to loop over 4 to create 4 columns
 const genres = [
   {
     name: "Film",
     id: 11,
+  },
+  {
+    name: "Books",
+    id: 10,
+  },
+  {
+    name: "Music",
+    id: 12,
+  }, 
+  {
+    name: "Video Games",
+    id: 15,
   },
 ];
 /*this is the array of levels */
@@ -79,7 +92,11 @@ function addGenre(genre) {
 }
 
 //pulling the function
-addGenre(genres[0]);
+/*addGenre(genres[0]);*/
+
+// gor each genre i m gone to pass it through into the add genre function
+genres.forEach(genre => addGenre(genre))
+
 
 function flipCard() {
   console.log("clicked");
