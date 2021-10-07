@@ -14,5 +14,19 @@ function addGenre(){
     const column = document.createElement('div') //it is a js method allow us to create element in javascript
     // we are going to use the classList method to add a class
     column.classList.add('genre-column')
+    // we can see how it look by 
+    column.innerHTML = 'hello there genre here talking to you all'
+    // we grabbing the game and we are going to use append the column we created
+    // append method to put column inside game
+    game.append(column)
+    // we are you using forEach method to grab each levels that we mentioned above
+    levels.forEach(level=>{
+        //for each level in levels array i m going to fetch the api but i dont want difficulty easy
+        // as I will replace it with the level
+        fetch('https://opentdb.com/api.php?amount=1&category=11&difficulty={level}&type=boolean')
+    })
 
 }
+
+//pulling the function
+addGenre()
